@@ -16,7 +16,7 @@ body {
 
 .container {
     width: 100%;
-    max-width: 600px;
+    max-width: 1000px;
 }
 
 .card {
@@ -52,23 +52,57 @@ h1 {
     font-size: 1em;
 }
 
-.form-group {
-    margin-bottom: 25px;
+h2, h3 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-label {
-    display: block;
-    color: #333;
+/* Tableau d'entrée */
+.tableau-container {
+    overflow-x: auto;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+th {
+    padding: 15px;
+    text-align: left;
     font-weight: 600;
-    margin-bottom: 8px;
-    font-size: 1.1em;
+    border: none;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+tbody tr:hover {
+    background: #f9f9f9;
+    transition: all 0.2s ease;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
 }
 
 input[type="number"] {
     width: 100%;
-    padding: 12px 15px;
+    padding: 10px 12px;
     border: 2px solid #e0e0e0;
-    border-radius: 10px;
+    border-radius: 8px;
     font-size: 1em;
     transition: all 0.3s ease;
     background: #f9f9f9;
@@ -78,21 +112,44 @@ input[type="number"]:focus {
     outline: none;
     border-color: #667eea;
     background: white;
-    box-shadow: 0 0 10px rgba(102, 126, 234, 0.1);
+    box-shadow: 0 0 8px rgba(102, 126, 234, 0.2);
 }
 
+/* Boutons dans le tableau */
+.btn-small {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 5px 8px;
+    margin: 0 3px;
+}
+
+.btn-delete {
+    color: #e74c3c;
+}
+
+.btn-delete:hover {
+    color: #c0392b;
+    transform: scale(1.15);
+}
+
+/* Boutons d'action */
 .button-group {
     display: flex;
     gap: 15px;
     margin-bottom: 30px;
+    flex-wrap: wrap;
 }
 
 .btn {
     flex: 1;
+    min-width: 150px;
     padding: 12px 20px;
     border: none;
     border-radius: 10px;
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -111,8 +168,15 @@ input[type="number"]:focus {
     box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
 }
 
-.btn-primary:active {
-    transform: translateY(0);
+.btn-success {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+    box-shadow: 0 5px 15px rgba(17, 153, 142, 0.4);
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(17, 153, 142, 0.6);
 }
 
 .btn-secondary {
@@ -124,7 +188,34 @@ input[type="number"]:focus {
     background: #d0d0d0;
 }
 
-.resultats {
+.btn-export {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+}
+
+.btn-export:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(245, 87, 108, 0.6);
+}
+
+.btn-copy {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+}
+
+.btn-copy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(79, 172, 254, 0.6);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Tableau des résultats */
+.resultats-container {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     border-radius: 15px;
     padding: 25px;
@@ -143,69 +234,28 @@ input[type="number"]:focus {
     }
 }
 
-.resultats h2 {
-    color: #333;
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 1.5em;
-}
-
-.result-item {
+.tableau-resultats {
     background: white;
     border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
 }
 
-.result-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.result-label {
-    font-weight: 600;
-    color: #555;
-    font-size: 0.95em;
-}
-
-.copy-btn {
-    background: none;
-    border: none;
-    font-size: 1.3em;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    padding: 5px;
-}
-
-.copy-btn:hover {
-    transform: scale(1.2);
-}
-
-.result-value {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    font-size: 1.8em;
-    font-weight: bold;
-    padding: 15px;
-    border-radius: 8px;
+.tableau-resultats td {
     text-align: center;
-    font-family: 'Courier New', monospace;
+    font-weight: 500;
+    color: #333;
 }
 
+.tableau-resultats td:first-child {
+    text-align: left;
+}
+
+/* Historique */
 .historique {
     background: #f9f9f9;
     border-radius: 15px;
     padding: 20px;
     border: 2px solid #e0e0e0;
-}
-
-.historique h3 {
-    color: #333;
-    margin-bottom: 15px;
-    text-align: center;
 }
 
 #listeHistorique {
@@ -218,26 +268,37 @@ input[type="number"]:focus {
     background: white;
     padding: 12px 15px;
     border-radius: 8px;
-    font-size: 0.95em;
+    font-size: 0.9em;
     color: #555;
     border-left: 4px solid #667eea;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-@media (max-width: 600px) {
+/* Responsive */
+@media (max-width: 768px) {
     .card {
-        padding: 25px;
+        padding: 20px;
     }
     
     h1 {
-        font-size: 2em;
+        font-size: 1.8em;
     }
     
     .button-group {
         flex-direction: column;
     }
     
-    .result-value {
-        font-size: 1.5em;
+    .btn {
+        width: 100%;
+    }
+    
+    th, td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    input[type="number"] {
+        padding: 8px 10px;
+        font-size: 0.9em;
     }
 }
