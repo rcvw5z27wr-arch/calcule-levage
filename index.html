@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcule Levage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>⚙️ Calcule Levage</h1>
+            <p class="subtitle">Calculez votre charge et portée avec coefficients</p>
+            
+            <div class="form-group">
+                <label for="charge">Charge (kg) :</label>
+                <input type="number" id="charge" placeholder="Entrez la charge" step="0.01">
+            </div>
+            
+            <div class="form-group">
+                <label for="portee">Portée (m) :</label>
+                <input type="number" id="portee" placeholder="Entrez la portée" step="0.01">
+            </div>
+            
+            <div class="button-group">
+                <button id="calculBtn" class="btn btn-primary">Calculer</button>
+                <button id="resetBtn" class="btn btn-secondary">Réinitialiser</button>
+            </div>
+            
+            <div id="resultats" class="resultats" style="display: none;">
+                <h2>📊 Résultats</h2>
+                
+                <div class="result-item">
+                    <div class="result-header">
+                        <span class="result-label">100% (Valeur de base)</span>
+                        <button class="copy-btn" onclick="copierResultat('result100')">📋</button>
+                    </div>
+                    <div id="result100" class="result-value">-</div>
+                </div>
+                
+                <div class="result-item">
+                    <div class="result-header">
+                        <span class="result-label">110% (Coefficient 1.1)</span>
+                        <button class="copy-btn" onclick="copierResultat('result110')">📋</button>
+                    </div>
+                    <div id="result110" class="result-value">-</div>
+                </div>
+                
+                <div class="result-item">
+                    <div class="result-header">
+                        <span class="result-label">125% (Coefficient 1.25)</span>
+                        <button class="copy-btn" onclick="copierResultat('result125')">📋</button>
+                    </div>
+                    <div id="result125" class="result-value">-</div>
+                </div>
+            </div>
+            
+            <div id="historique" class="historique" style="display: none;">
+                <h3>📝 Historique (10 derniers)</h3>
+                <div id="listeHistorique"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
